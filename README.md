@@ -1,1 +1,2 @@
-# TrabalhoProgramacao
+# TrabalhoProgramacao 
+Marcelo && Augusto

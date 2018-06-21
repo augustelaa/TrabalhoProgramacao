@@ -18,7 +18,7 @@ public class Janela {
 	
 	public void addItem(Clicavel item) {
 		if (item == null) {
-			return;
+			throw new IllegalArgumentException("O clicavel não pode ser nulo.");
 		}
 		
 		if (item.getClass() == Icone.class) {
@@ -34,7 +34,7 @@ public class Janela {
 	
 	public void remItem(Clicavel item) {
 		if (item == null) { 
-			return;
+			throw new IllegalArgumentException("O clicavel não pode ser nulo.");
 		}
 
 		if (item.getClass() == Icone.class) {

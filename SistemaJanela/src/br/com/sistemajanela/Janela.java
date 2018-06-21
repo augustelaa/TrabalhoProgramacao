@@ -7,20 +7,23 @@ import java.util.logging.Logger;
 public class Janela {
 
 	private Clicavel[][] mapa;
-	private List<Clicavel> itens;
+	private List<Icone> icones;
 	
 	private static final Logger logger = Logger.getLogger(Janela.class.getName());
 	
 	public Janela() {
 		mapa = new Clicavel[500][500];
-		itens = new ArrayList<Clicavel>();
+		icones = new ArrayList<Icone>();
 	}
 	
 	public void addItem(Clicavel item) {
-		if (item == null)
+		if (item == null) {
 			return;
+		}
 		
-		itens.add(item);
+		if (item.getClass() == Icone.class) {
+			icones.add((Icone) item);
+		}
 		
 		for (int i = 0; i < item.getAltura(); i++) {
 			for (int j = 0; j < item.getAltura(); j++) {
@@ -30,10 +33,13 @@ public class Janela {
 	}
 	
 	public void remItem(Clicavel item) {
-		if (item == null) 
+		if (item == null) { 
 			return;
+		}
 
-		itens.remove(item);
+		if (item.getClass() == Icone.class) {
+			icones.remove(item);
+		}
 		
 		for (int i = 0; i < item.getAltura(); i++) {
 			for (int j = 0; j < item.getAltura(); j++) {
@@ -41,25 +47,25 @@ public class Janela {
 			}
 		}
 	}
+	
+	private double getDistancia(int xInicial, int yInicial, int xFinal, int yFinal) {
+		return Math.hypot(xInicial - xFinal, yInicial - yFinal);
+	}
 
 	private Clicavel buscarIconeProximo(int x, int y) {
 		Clicavel retorno = null;
 		double distancia = 0f;
-		double menorDistancia = 0f;
+		double menorDistancia = getDistancia(icones.get(0).getX(), icones.get(0).getY(), x, y);
 
-		for (Clicavel item : itens) {
-			// Consistencia para só comparar com icones
-			if (item.getClass() == Icone.class) {
-				// Percorremos todas as distancias considerando as dimensões
-				for (int i = 0; i < Icone.altura; i++) {
-					for (int j = 0; j < Icone.largura; j++) {
-						distancia = Math.hypot((item.getX() + i) - x, (item.getY() + j) - y);
-						// Se for o primeiro laço ou se a distancia for menor que a menor já registrada (não há problema em ser zero, pois se for iremos detectar na chamada da analisarCoordenada)
-						if (menorDistancia > distancia || distancia == 0) {
-							menorDistancia = distancia;
-							retorno = item;
-							break;
-						}
+		for (Clicavel item : icones) {
+			// Percorremos todas as distancias considerando as dimensões
+			for (int i = 0; i < Icone.altura; i++) {
+				for (int j = 0; j < Icone.largura; j++) {
+					distancia = getDistancia(item.getX() + i, item.getY() + j, x, y);
+					if (menorDistancia > distancia) {
+						menorDistancia = distancia;
+						retorno = item;
+						break;
 					}
 				}
 			}

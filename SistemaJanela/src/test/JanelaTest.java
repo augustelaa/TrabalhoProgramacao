@@ -12,7 +12,7 @@ public class JanelaTest {
 	public void test() {
 		Janela janela = new Janela();
 		Icone icone1 = new Icone(5, 4);
-		Icone icone2 = new Icone(33, 33);
+		Icone icone2 = new Icone(32, 32);
 		Icone icone3 = new Icone(25, 25);
 		Regiao regiao4 = new Regiao(9, 10, 10, 10);
 		janela.addItem(icone1);

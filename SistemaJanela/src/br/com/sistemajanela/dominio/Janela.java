@@ -8,21 +8,19 @@ import javax.swing.JTextArea;
 public class Janela {
 
 	private Clicavel[][] mapa;
-	private List<Icone> icones;
+	private List<Clicavel> itens;
 	
 	public Janela() {
 		mapa = new Clicavel[500][500];
-		icones = new ArrayList<Icone>();
+		itens = new ArrayList<Clicavel>();
 	}
 	
 	public void addItem(Clicavel item) {
 		if (item == null) {
 			throw new IllegalArgumentException("O clicavel n�o pode ser nulo.");
 		}
-		
-		if (item.getClass() == Icone.class) {
-			icones.add((Icone) item);
-		}
+
+		itens.add(item);
 		
 		for (int i = 0; i < item.getLargura(); i++) {
 			for (int j = 0; j < item.getAltura(); j++) {
@@ -37,7 +35,7 @@ public class Janela {
 		}
 
 		if (item.getClass() == Icone.class) {
-			icones.remove(item);
+			itens.remove(item);
 		}
 		
 		for (int i = 0; i < item.getLargura(); i++) {
@@ -53,15 +51,18 @@ public class Janela {
 
 	private Clicavel buscarIconeProximo(int x, int y) {
 		
-		if (icones.isEmpty()) {
+		if (itens.isEmpty()) {
 			return null;
 		}
 		
 		double distancia = 0f;
-		Clicavel retorno = icones.get(0);
-		double menorDistancia = getDistancia(icones.get(0).getX(), icones.get(0).getY(), x, y);
+		Clicavel retorno = itens.get(0);
+		double menorDistancia = getDistancia(itens.get(0).getX(), itens.get(0).getY(), x, y);
 
-		for (Clicavel item : icones) {
+		for (Clicavel item : itens) {
+			if (item.getClass() != Icone.class) {
+				continue;
+			}
 			// Percorremos todas as distancias considerando as dimens�es
 			for (int i = 0; i < Icone.altura; i++) {
 				for (int j = 0; j < Icone.largura; j++) {

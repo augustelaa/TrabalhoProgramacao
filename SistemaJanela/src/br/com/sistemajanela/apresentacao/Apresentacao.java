@@ -513,7 +513,7 @@ public class Apresentacao extends javax.swing.JFrame {
             	modeloRelatorioTabela.addRow(new Object[] {dateFormat.format(date), x + "," + y, "Nenhum item", distancia});
             } else {
             	distancia = janela.getDistancia(Integer.parseInt(x), Integer.parseInt(y), item.getX(), item.getY());
-            	modeloRelatorioTabela.addRow(new Object[] {dateFormat.format(date), x + "," + y, item.hashCode(), distancia});
+            	modeloRelatorioTabela.addRow(new Object[] {dateFormat.format(date), x + "," + y, item.getClass().getSimpleName() + ": " + item.getId(), distancia});
             }
         } catch (IllegalArgumentException iae) {
            JOptionPane.showMessageDialog(this, iae.getMessage());

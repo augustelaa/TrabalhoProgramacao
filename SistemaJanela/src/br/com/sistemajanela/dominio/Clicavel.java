@@ -1,17 +1,23 @@
 package br.com.sistemajanela.dominio;
 
+import java.util.concurrent.atomic.AtomicInteger;
+
 public abstract class Clicavel {
 
 	private int x;
 	private int y;
 	private int altura;
 	private int largura;
+	private int id;
+	
+	private static final AtomicInteger sequencia = new AtomicInteger(0); 
 	
 	public Clicavel(int x, int y, int altura, int largura) {
 		setX(x);
 		setY(y);
 		setAltura(altura);
 		setLargura(largura);
+		setId(sequencia.incrementAndGet());
 	}
 
 	public int getX() {
@@ -50,4 +56,11 @@ public abstract class Clicavel {
 
 		this.largura = largura;
 	}
+	public int getId() {
+		return id;
+	}
+	public void setId(int id) {
+		this.id = id;
+	}
+	
 }

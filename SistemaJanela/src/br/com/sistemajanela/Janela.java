@@ -2,14 +2,13 @@ package br.com.sistemajanela;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Logger;
+
+import javax.swing.JTextArea;
 
 public class Janela {
 
 	private Clicavel[][] mapa;
 	private List<Icone> icones;
-	
-	private static final Logger logger = Logger.getLogger(Janela.class.getName());
 	
 	public Janela() {
 		mapa = new Clicavel[500][500];
@@ -53,8 +52,13 @@ public class Janela {
 	}
 
 	private Clicavel buscarIconeProximo(int x, int y) {
-		Clicavel retorno = null;
+		
+		if (icones.isEmpty()) {
+			return null;
+		}
+		
 		double distancia = 0f;
+		Clicavel retorno = icones.get(0);
 		double menorDistancia = getDistancia(icones.get(0).getX(), icones.get(0).getY(), x, y);
 
 		for (Clicavel item : icones) {
@@ -74,31 +78,39 @@ public class Janela {
 	}
 	
 	private Clicavel analisarCoordenada(int x, int y) {
+		if ( (x < 0 || x > 499) || (y < 0 || y > 499) ) {
+			throw new IllegalArgumentException("As coordenadas devem estar entre 0...499.");
+		}
+		
 		Clicavel retorno = null;
 		if (mapa[x][y] != null) {
 			retorno = mapa[x][y];
 		}
 		return retorno;
 	}
-	
-	/**
-	 * TODO: Implementar controle de relatório
-	 * @param x
-	 * @param y
-	 */
-	public void clicar(int x, int y) {
-		logger.info("Realizando um click nas coordenadas: (" + x + "," + y + ").");
-		Clicavel item = analisarCoordenada(x, y);
+
+	public Clicavel clicar(int x, int y, JTextArea area) {
+		
+		if (area == null) {
+			return null;
+		}
+		
+		area.setText("");
+		
+		Clicavel item = null;
+		area.append("Realizando um click nas coordenadas: (" + x + "," + y + ").\n");
+		item = analisarCoordenada(x, y);
 		if (item != null) {
-			logger.info("Clicavel: nas coordenadas: (" + item.getX() + "," + item.getY() + ").");
+			area.append("Clicavel: nas coordenadas: (" + item.getX() + "," + item.getY() + ").\n");
 		} else {
-			logger.info("Nenhum item foi selecionado, realizando busca dos icones nas proximidades...");
+			area.append("Nenhum item foi selecionado, realizando busca dos icones nas proximidades...\n");
 			item = buscarIconeProximo(x, y);
 			if (item != null) {
-				logger.info("Icone nas coordenadas: (" + item.getX() + "," + item.getY() + ").");
+				area.append("Icone nas coordenadas: (" + item.getX() + "," + item.getY() + ").\n");
 			} else {
-				logger.info("Não existe nenhum icone próximo.");
+				area.append("Não existe nenhum icone próximo.");
 			}
 		}
+		return item;
 	}
 }

@@ -13,12 +13,13 @@ import javax.swing.JOptionPane;
  */
 public class Apresentacao extends javax.swing.JFrame {
 
-    //Atributos Apresentação 
-    Janela janela = new Janela();
+    //Atributos ApresentaÃ§Ã£o 
+    Janela janela;
     
     
     public Apresentacao() {
         initComponents();
+        janela = new Janela();
     }
 
     /**
@@ -85,7 +86,7 @@ public class Apresentacao extends javax.swing.JFrame {
 
         jLabel4.setText("unidades");
 
-        botaoCadastroIcone.setText("Cadastrar Ícone");
+        botaoCadastroIcone.setText("Cadastrar Ã�cone");
         botaoCadastroIcone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoCadastroIconeActionPerformed(evt);
@@ -94,7 +95,7 @@ public class Apresentacao extends javax.swing.JFrame {
 
         cadastroIconeText.setColumns(20);
         cadastroIconeText.setRows(5);
-        cadastroIconeText.setText("Obs.: O valor solicitado é relação ao \ncentro do ícone. \nO valor deve ser maior que zero e menor\nque 500 unidades.");
+        cadastroIconeText.setText("Obs.: O valor solicitado Ã© relaÃ§Ã£o ao \ncentro do Ã­cone. \nO valor deve ser maior que zero e menor\nque 500 unidades.");
         cadastroIconeText.setEnabled(false);
         jScrollPane1.setViewportView(cadastroIconeText);
 
@@ -152,9 +153,9 @@ public class Apresentacao extends javax.swing.JFrame {
                 .addContainerGap(214, Short.MAX_VALUE))
         );
 
-        cadastroTable.addTab("Cadastro Ícone", cadastroIcone);
+        cadastroTable.addTab("Cadastro Ã�cone", cadastroIcone);
 
-        cadastroRegiaoBotao.setText("Cadastrar Região");
+        cadastroRegiaoBotao.setText("Cadastrar RegiÃ£o");
         cadastroRegiaoBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadastroRegiaoBotaoActionPerformed(evt);
@@ -185,12 +186,12 @@ public class Apresentacao extends javax.swing.JFrame {
 
         cadastroRegiaoText.setColumns(20);
         cadastroRegiaoText.setRows(5);
-        cadastroRegiaoText.setText("Obs.: O valor solicitado é relação ao \ncentro da região. \nO valor deve ser maior que zero e menor\nque 500 unidades.");
+        cadastroRegiaoText.setText("Obs.: O valor solicitado Ã© relaÃ§Ã£o ao \ncentro da regiÃ£o. \nO valor deve ser maior que zero e menor\nque 500 unidades.");
         jScrollPane2.setViewportView(cadastroRegiaoText);
 
         jLabel14.setText("Posicionamento:");
 
-        jLabel15.setText("Dimensões:");
+        jLabel15.setText("DimensÃµes:");
 
         javax.swing.GroupLayout cadastroRegiaoLayout = new javax.swing.GroupLayout(cadastroRegiao);
         cadastroRegiao.setLayout(cadastroRegiaoLayout);
@@ -270,7 +271,7 @@ public class Apresentacao extends javax.swing.JFrame {
                 .addContainerGap(178, Short.MAX_VALUE))
         );
 
-        cadastroTable.addTab("Cadastro Região", cadastroRegiao);
+        cadastroTable.addTab("Cadastro RegiÃ£o", cadastroRegiao);
 
         jLabel16.setText("Coordenadas:");
 
@@ -286,7 +287,7 @@ public class Apresentacao extends javax.swing.JFrame {
 
         lerClickText.setColumns(20);
         lerClickText.setRows(5);
-        lerClickText.setText("Obs.: O valor solicitado é relação ao \ncentro do click. \nO valor deve ser maior que zero e menor\nque 500 unidades.");
+        lerClickText.setText("Obs.: O valor solicitado Ã© relaÃ§Ã£o ao \ncentro do click. \nO valor deve ser maior que zero e menor\nque 500 unidades.");
         jScrollPane3.setViewportView(lerClickText);
 
         lerClickConsultar.setText("Consultar");
@@ -361,7 +362,7 @@ public class Apresentacao extends javax.swing.JFrame {
             .addGap(0, 330, Short.MAX_VALUE)
         );
 
-        cadastroTable.addTab("Relatório", jPanel2);
+        cadastroTable.addTab("RelatÃ³rio", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -388,7 +389,7 @@ public class Apresentacao extends javax.swing.JFrame {
             
             Icone icone = new Icone(valorX, valorY);
             janela.addItem(icone);
-            JOptionPane.showMessageDialog(this, "Cadastro do ícone efetuado com sucesso");
+            JOptionPane.showMessageDialog(this, "Cadastro do Ã­cone efetuado com sucesso");
             cadastroText1.setText("");
             cadastroText2.setText("");
                     
@@ -407,7 +408,7 @@ public class Apresentacao extends javax.swing.JFrame {
         Regiao regiao = new Regiao(Integer.parseInt(cadastroRegiaoPosicionamentoX.getText()), Integer.parseInt(cadastroRegiaoPosicionamentoY.getText()), 
         Integer.parseInt(cadastroRegiaoAltura.getText()), Integer.parseInt(cadastroRegiaoLargura.getText()));
         janela.addItem(regiao);
-        JOptionPane.showMessageDialog(this, "Região cadastrada com sucesso"); 
+        JOptionPane.showMessageDialog(this, "RegiÃ£o cadastrada com sucesso"); 
         
         cadastroRegiaoPosicionamentoX.setText("");
         cadastroRegiaoPosicionamentoY.setText(""); 
@@ -428,12 +429,11 @@ public class Apresentacao extends javax.swing.JFrame {
     }//GEN-LAST:event_lerClickXActionPerformed
 
     private void lerClickConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lerClickConsultarActionPerformed
-        try {
-            janela.clicar(Integer.parseInt(lerClickX.getText()), Integer.parseInt(lerClickX.getText()));
+    	try {
+            janela.clicar(Integer.parseInt(lerClickX.getText()), Integer.parseInt(lerClickY.getText()), jTextArea1);
         } catch (IllegalArgumentException iae) {
            JOptionPane.showMessageDialog(this, iae.getMessage());
         }
-        
        
     }//GEN-LAST:event_lerClickConsultarActionPerformed
 

@@ -19,12 +19,12 @@ public class JanelaTest {
 		janela.addItem(icone2);
 		janela.addItem(icone3);
 		janela.addItem(regiao4);
-		janela.clicar(5, 4);
-		janela.clicar(5, 5);
-		janela.clicar(9, 9);
-		janela.clicar(29, 29);
-		janela.clicar(9, 10);
-		janela.clicar(12, 12);
+		janela.clicar(5, 4, null);
+		janela.clicar(5, 5, null);
+		janela.clicar(9, 9, null);
+		janela.clicar(29, 29, null);
+		janela.clicar(9, 10, null);
+		janela.clicar(12, 12, null);
 	}
 
 }

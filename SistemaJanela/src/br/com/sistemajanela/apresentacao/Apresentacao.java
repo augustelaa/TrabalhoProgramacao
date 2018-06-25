@@ -79,6 +79,8 @@ public class Apresentacao extends javax.swing.JFrame {
         jScrollPane4 = new javax.swing.JScrollPane();
         jTextArea1 = new javax.swing.JTextArea();
         jPanel2 = new javax.swing.JPanel();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        relatorioTabela = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -90,7 +92,7 @@ public class Apresentacao extends javax.swing.JFrame {
 
         jLabel4.setText("unidades");
 
-        botaoCadastroIcone.setText("Cadastrar Ã�cone");
+        botaoCadastroIcone.setText("Cadastrar Ícone");
         botaoCadastroIcone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoCadastroIconeActionPerformed(evt);
@@ -99,7 +101,7 @@ public class Apresentacao extends javax.swing.JFrame {
 
         cadastroIconeText.setColumns(20);
         cadastroIconeText.setRows(5);
-        cadastroIconeText.setText("Obs.: O valor solicitado Ã© relaÃ§Ã£o ao \ncentro do Ã­cone. \nO valor deve ser maior que zero e menor\nque 500 unidades.");
+        cadastroIconeText.setText("Obs.: O valor deve ser maior que zero e menor\nque 500 unidades.");
         cadastroIconeText.setEnabled(false);
         jScrollPane1.setViewportView(cadastroIconeText);
 
@@ -112,34 +114,36 @@ public class Apresentacao extends javax.swing.JFrame {
             .addGroup(cadastroIconeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel13)
                     .addGroup(cadastroIconeLayout.createSequentialGroup()
-                        .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel1)
-                            .addComponent(jLabel2))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(cadastroText1)
-                            .addComponent(cadastroText2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel3)
-                            .addComponent(jLabel4)))
-                    .addGroup(cadastroIconeLayout.createSequentialGroup()
-                        .addGap(21, 21, 21)
-                        .addComponent(botaoCadastroIcone))
-                    .addComponent(jLabel13))
-                .addGap(18, 18, 18)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 321, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(cadastroIconeLayout.createSequentialGroup()
+                                .addGap(21, 21, 21)
+                                .addComponent(botaoCadastroIcone))
+                            .addGroup(cadastroIconeLayout.createSequentialGroup()
+                                .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(cadastroText1)
+                                    .addComponent(cadastroText2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(28, Short.MAX_VALUE))
         );
         cadastroIconeLayout.setVerticalGroup(
             cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cadastroIconeLayout.createSequentialGroup()
+                .addGap(4, 4, 4)
+                .addComponent(jLabel13)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(cadastroIconeLayout.createSequentialGroup()
-                        .addGap(4, 4, 4)
-                        .addComponent(jLabel13)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cadastroText1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel1)
@@ -149,17 +153,15 @@ public class Apresentacao extends javax.swing.JFrame {
                             .addComponent(cadastroText2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)
                             .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
+                        .addGap(19, 19, 19)
                         .addComponent(botaoCadastroIcone, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(cadastroIconeLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(214, Short.MAX_VALUE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(265, Short.MAX_VALUE))
         );
 
-        cadastroTable.addTab("Cadastro Ã�cone", cadastroIcone);
+        cadastroTable.addTab("Cadastro Ícone", cadastroIcone);
 
-        cadastroRegiaoBotao.setText("Cadastrar RegiÃ£o");
+        cadastroRegiaoBotao.setText("Cadastrar Região");
         cadastroRegiaoBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadastroRegiaoBotaoActionPerformed(evt);
@@ -172,9 +174,9 @@ public class Apresentacao extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("X:");
+        jLabel5.setText("Largura:");
 
-        jLabel6.setText("Y:");
+        jLabel6.setText("Altura:");
 
         jLabel7.setText("X:");
 
@@ -190,63 +192,66 @@ public class Apresentacao extends javax.swing.JFrame {
 
         cadastroRegiaoText.setColumns(20);
         cadastroRegiaoText.setRows(5);
-        cadastroRegiaoText.setText("Obs.: O valor solicitado Ã© relaÃ§Ã£o ao \ncentro da regiÃ£o. \nO valor deve ser maior que zero e menor\nque 500 unidades.");
+        cadastroRegiaoText.setText("Obs.: O valor deve ser maior que zero e\nmenor que 500 unidades.");
         jScrollPane2.setViewportView(cadastroRegiaoText);
 
         jLabel14.setText("Posicionamento:");
 
-        jLabel15.setText("DimensÃµes:");
+        jLabel15.setText("Dimensões:");
 
         javax.swing.GroupLayout cadastroRegiaoLayout = new javax.swing.GroupLayout(cadastroRegiao);
         cadastroRegiao.setLayout(cadastroRegiaoLayout);
         cadastroRegiaoLayout.setHorizontalGroup(
             cadastroRegiaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cadastroRegiaoLayout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(cadastroRegiaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(cadastroRegiaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastroRegiaoLayout.createSequentialGroup()
-                            .addGap(37, 37, 37)
-                            .addGroup(cadastroRegiaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addComponent(jLabel6)
-                                .addComponent(jLabel5))
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                    .addGroup(cadastroRegiaoLayout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(cadastroRegiaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(cadastroRegiaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addGroup(cadastroRegiaoLayout.createSequentialGroup()
-                                    .addComponent(cadastroRegiaoAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastroRegiaoLayout.createSequentialGroup()
+                                    .addGap(37, 37, 37)
+                                    .addGroup(cadastroRegiaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(jLabel6)
+                                        .addComponent(jLabel5))
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel9))
+                                    .addGroup(cadastroRegiaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(cadastroRegiaoLayout.createSequentialGroup()
+                                            .addComponent(cadastroRegiaoAltura, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel9))
+                                        .addGroup(cadastroRegiaoLayout.createSequentialGroup()
+                                            .addComponent(cadastroRegiaoLargura, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                            .addComponent(jLabel10))))
+                                .addComponent(jLabel14))
+                            .addComponent(jLabel15)
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastroRegiaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addGroup(cadastroRegiaoLayout.createSequentialGroup()
-                                    .addComponent(cadastroRegiaoLargura, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(jLabel8)
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(jLabel10))))
-                        .addComponent(jLabel14))
-                    .addComponent(jLabel15)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastroRegiaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(cadastroRegiaoLayout.createSequentialGroup()
-                            .addComponent(jLabel8)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cadastroRegiaoPosicionamentoY, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel12))
-                        .addGroup(cadastroRegiaoLayout.createSequentialGroup()
-                            .addComponent(jLabel7)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(cadastroRegiaoPosicionamentoX, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                            .addComponent(jLabel11))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(cadastroRegiaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 326, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(cadastroRegiaoBotao))
-                .addContainerGap(76, Short.MAX_VALUE))
+                                    .addComponent(cadastroRegiaoPosicionamentoY, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel12))
+                                .addGroup(cadastroRegiaoLayout.createSequentialGroup()
+                                    .addComponent(jLabel7)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(cadastroRegiaoPosicionamentoX, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                    .addComponent(jLabel11))))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE))
+                    .addGroup(cadastroRegiaoLayout.createSequentialGroup()
+                        .addGap(24, 24, 24)
+                        .addComponent(cadastroRegiaoBotao)
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         cadastroRegiaoLayout.setVerticalGroup(
             cadastroRegiaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(cadastroRegiaoLayout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(cadastroRegiaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(cadastroRegiaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(cadastroRegiaoLayout.createSequentialGroup()
                         .addComponent(jLabel15)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -258,24 +263,26 @@ public class Apresentacao extends javax.swing.JFrame {
                         .addGroup(cadastroRegiaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(cadastroRegiaoLargura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
-                            .addComponent(jLabel10))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel14)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(cadastroRegiaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cadastroRegiaoPosicionamentoX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel7)
-                            .addComponent(jLabel11))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(cadastroRegiaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(cadastroRegiaoPosicionamentoY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel8)
-                            .addComponent(jLabel12)
-                            .addComponent(cadastroRegiaoBotao))))
-                .addContainerGap(178, Short.MAX_VALUE))
+                            .addComponent(jLabel10)))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel14)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(cadastroRegiaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cadastroRegiaoPosicionamentoX, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(cadastroRegiaoLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cadastroRegiaoPosicionamentoY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel12))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(cadastroRegiaoBotao)
+                .addContainerGap(204, Short.MAX_VALUE))
         );
 
-        cadastroTable.addTab("Cadastro RegiÃ£o", cadastroRegiao);
+        cadastroTable.addTab("Cadastro Região", cadastroRegiao);
 
         jLabel16.setText("Coordenadas:");
 
@@ -291,7 +298,7 @@ public class Apresentacao extends javax.swing.JFrame {
 
         lerClickText.setColumns(20);
         lerClickText.setRows(5);
-        lerClickText.setText("Obs.: O valor solicitado Ã© relaÃ§Ã£o ao \ncentro do click. \nO valor deve ser maior que zero e menor\nque 500 unidades.");
+        lerClickText.setText("Obs.: O valor deve ser maior que zero e menor\nque 500 unidades.");
         jScrollPane3.setViewportView(lerClickText);
 
         lerClickConsultar.setText("Consultar");
@@ -311,24 +318,25 @@ public class Apresentacao extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane4)
                     .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addComponent(jLabel16)
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel18)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lerClickY))
-                                .addGroup(jPanel1Layout.createSequentialGroup()
-                                    .addComponent(jLabel17)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(lerClickX)))
-                            .addComponent(lerClickConsultar))
-                        .addGap(18, 18, 18)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 322, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(144, Short.MAX_VALUE))
+                        .addComponent(lerClickConsultar)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel16)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel18)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lerClickY))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jLabel17)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(lerClickX)))
+                        .addGap(29, 29, 29)
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)))
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -344,29 +352,46 @@ public class Apresentacao extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel18)
-                            .addComponent(lerClickY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(lerClickConsultar))
-                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lerClickY, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(jScrollPane3, javax.swing.GroupLayout.PREFERRED_SIZE, 66, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(lerClickConsultar)
                 .addGap(18, 18, 18)
                 .addComponent(jScrollPane4, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(30, Short.MAX_VALUE))
+                .addContainerGap(82, Short.MAX_VALUE))
         );
 
         cadastroTable.addTab("Ler Click", jPanel1);
+
+        relatorioTabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Data / Hora", "Click (X,Y)", "Item Selecionado", "Distância"
+            }
+        ));
+        relatorioTabela.setUpdateSelectionOnSort(false);
+        jScrollPane5.setViewportView(relatorioTabela);
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 573, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
+                .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 330, Short.MAX_VALUE)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 360, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        cadastroTable.addTab("RelatÃ³rio", jPanel2);
+        cadastroTable.addTab("Relatorio", jPanel2);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -397,12 +422,12 @@ public class Apresentacao extends javax.swing.JFrame {
         	return;
         }
     	try {
-            int valorX = Integer.parseInt(cadastroText1.getText());
-            int valorY = Integer.parseInt(cadastroText2.getText());
+            int valorX = Integer.parseInt(cadastroText1.getText().trim());
+            int valorY = Integer.parseInt(cadastroText2.getText().trim());
             
             Icone icone = new Icone(valorX, valorY);
             janela.addItem(icone);
-            JOptionPane.showMessageDialog(this, "Cadastro do Ã­cone efetuado com sucesso");
+            JOptionPane.showMessageDialog(this, "Cadastro do ícone efetuado com sucesso");
             cadastroText1.setText("");
             cadastroText2.setText("");
                     
@@ -438,10 +463,10 @@ public class Apresentacao extends javax.swing.JFrame {
         }
         
         try {
-        Regiao regiao = new Regiao(Integer.parseInt(cadastroRegiaoPosicionamentoX.getText()), Integer.parseInt(cadastroRegiaoPosicionamentoY.getText()), 
-        Integer.parseInt(cadastroRegiaoAltura.getText()), Integer.parseInt(cadastroRegiaoLargura.getText()));
+        Regiao regiao = new Regiao(Integer.parseInt(cadastroRegiaoPosicionamentoX.getText().trim()), Integer.parseInt(cadastroRegiaoPosicionamentoY.getText().trim()), 
+        Integer.parseInt(cadastroRegiaoAltura.getText().trim()), Integer.parseInt(cadastroRegiaoLargura.getText().trim()));
         janela.addItem(regiao);
-        JOptionPane.showMessageDialog(this, "RegiÃ£o cadastrada com sucesso"); 
+        JOptionPane.showMessageDialog(this, "Região cadastrada com sucesso"); 
         
         cadastroRegiaoPosicionamentoX.setText("");
         cadastroRegiaoPosicionamentoY.setText(""); 
@@ -463,7 +488,8 @@ public class Apresentacao extends javax.swing.JFrame {
 
     private void lerClickConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lerClickConsultarActionPerformed
     	try {
-            janela.clicar(Integer.parseInt(lerClickX.getText()), Integer.parseInt(lerClickY.getText()), jTextArea1);
+            janela.clicar(Integer.parseInt(lerClickX.getText().trim()), Integer.parseInt(lerClickY.getText().trim()), jTextArea1);
+                     
         } catch (IllegalArgumentException iae) {
            JOptionPane.showMessageDialog(this, iae.getMessage());
         }
@@ -544,11 +570,13 @@ public class Apresentacao extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
+    private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JButton lerClickConsultar;
     private javax.swing.JTextArea lerClickText;
     private javax.swing.JTextField lerClickX;
     private javax.swing.JTextField lerClickY;
+    private javax.swing.JTable relatorioTabela;
     // End of variables declaration//GEN-END:variables
 
 }

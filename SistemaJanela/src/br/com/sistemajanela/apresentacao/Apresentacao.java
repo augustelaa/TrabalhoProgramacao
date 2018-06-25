@@ -5,8 +5,14 @@
  */
 package br.com.sistemajanela.apresentacao;
 
-import javax.swing.JOptionPane;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
+import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
+
+import br.com.sistemajanela.dominio.Clicavel;
 import br.com.sistemajanela.dominio.Icone;
 import br.com.sistemajanela.dominio.Janela;
 import br.com.sistemajanela.dominio.Regiao;
@@ -363,14 +369,10 @@ public class Apresentacao extends javax.swing.JFrame {
 
         cadastroTable.addTab("Ler Click", jPanel1);
 
-        relatorioTabela.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-
-            },
-            new String [] {
-                "Data / Hora", "Click (X,Y)", "Item Selecionado", "Distância"
-            }
-        ));
+        String header[] = new String[] { "Data/Hora", "Clique (x,y)", "Item selecionado", "Distância"};
+        modeloRelatorioTabela = new DefaultTableModel(0, 0);
+        modeloRelatorioTabela.setColumnIdentifiers(header);
+        relatorioTabela.setModel(modeloRelatorioTabela);
         relatorioTabela.setUpdateSelectionOnSort(false);
         jScrollPane5.setViewportView(relatorioTabela);
 
@@ -487,9 +489,32 @@ public class Apresentacao extends javax.swing.JFrame {
     }//GEN-LAST:event_lerClickXActionPerformed
 
     private void lerClickConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lerClickConsultarActionPerformed
+    	
+    	if (lerClickX.getText().trim().isEmpty()) {
+        	JOptionPane.showMessageDialog(this, "Favor informar a coordenada X.");
+        	return;
+        }
+    	
+    	if (lerClickY.getText().trim().isEmpty()) {
+        	JOptionPane.showMessageDialog(this, "Favor informar a coordenada Y.");
+        	return;
+        }
+    	
+    	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+    	Date date = new Date();
+    	Clicavel item = null;
+    	double distancia = 0;
+    	
     	try {
-            janela.clicar(Integer.parseInt(lerClickX.getText().trim()), Integer.parseInt(lerClickY.getText().trim()), jTextArea1);
-                     
+    		String x = lerClickX.getText().trim();
+    		String y = lerClickY.getText().trim();
+    		item = janela.clicar(Integer.parseInt(x), Integer.parseInt(y), jTextArea1);
+            if (item == null) {
+            	modeloRelatorioTabela.addRow(new Object[] {dateFormat.format(date), x + "," + y, "Nenhum item", distancia});
+            } else {
+            	distancia = janela.getDistancia(Integer.parseInt(x), Integer.parseInt(y), item.getX(), item.getY());
+            	modeloRelatorioTabela.addRow(new Object[] {dateFormat.format(date), x + "," + y, item.hashCode(), distancia});
+            }
         } catch (IllegalArgumentException iae) {
            JOptionPane.showMessageDialog(this, iae.getMessage());
         }
@@ -577,6 +602,7 @@ public class Apresentacao extends javax.swing.JFrame {
     private javax.swing.JTextField lerClickX;
     private javax.swing.JTextField lerClickY;
     private javax.swing.JTable relatorioTabela;
+    private DefaultTableModel modeloRelatorioTabela;
     // End of variables declaration//GEN-END:variables
 
 }

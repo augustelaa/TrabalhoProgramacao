@@ -17,14 +17,14 @@ public class Janela {
 	
 	public void addItem(Clicavel item) {
 		if (item == null) {
-			throw new IllegalArgumentException("O clicavel não pode ser nulo.");
+			throw new IllegalArgumentException("O clicavel nï¿½o pode ser nulo.");
 		}
 		
 		if (item.getClass() == Icone.class) {
 			icones.add((Icone) item);
 		}
 		
-		for (int i = 0; i < item.getAltura(); i++) {
+		for (int i = 0; i < item.getLargura(); i++) {
 			for (int j = 0; j < item.getAltura(); j++) {
 				mapa[item.getX()+i][item.getY()+j] = item;
 			}
@@ -33,21 +33,21 @@ public class Janela {
 	
 	public void remItem(Clicavel item) {
 		if (item == null) { 
-			throw new IllegalArgumentException("O clicavel não pode ser nulo.");
+			throw new IllegalArgumentException("O clicavel nï¿½o pode ser nulo.");
 		}
 
 		if (item.getClass() == Icone.class) {
 			icones.remove(item);
 		}
 		
-		for (int i = 0; i < item.getAltura(); i++) {
+		for (int i = 0; i < item.getLargura(); i++) {
 			for (int j = 0; j < item.getAltura(); j++) {
 				mapa[item.getX()+i][item.getY()+j] = null;
 			}
 		}
 	}
 	
-	private double getDistancia(int xInicial, int yInicial, int xFinal, int yFinal) {
+	public double getDistancia(int xInicial, int yInicial, int xFinal, int yFinal) {
 		return Math.hypot(xInicial - xFinal, yInicial - yFinal);
 	}
 
@@ -62,14 +62,13 @@ public class Janela {
 		double menorDistancia = getDistancia(icones.get(0).getX(), icones.get(0).getY(), x, y);
 
 		for (Clicavel item : icones) {
-			// Percorremos todas as distancias considerando as dimensões
+			// Percorremos todas as distancias considerando as dimensï¿½es
 			for (int i = 0; i < Icone.altura; i++) {
 				for (int j = 0; j < Icone.largura; j++) {
 					distancia = getDistancia(item.getX() + i, item.getY() + j, x, y);
 					if (menorDistancia > distancia) {
 						menorDistancia = distancia;
 						retorno = item;
-						break;
 					}
 				}
 			}
@@ -108,7 +107,7 @@ public class Janela {
 			if (item != null) {
 				area.append("Icone nas coordenadas: (" + item.getX() + "," + item.getY() + ").\n");
 			} else {
-				area.append("Não existe nenhum icone próximo.");
+				area.append("NÃ£o existe nenhum icone prÃ³ximo.");
 			}
 		}
 		return item;

@@ -25,8 +25,8 @@ public class Apresentacao extends javax.swing.JFrame {
 
     //Atributos ApresentaÃ§Ã£o 
     Janela janela;
-    
-    
+    DefaultTableModel modeloRelatorioTabela;
+
     public Apresentacao() {
         initComponents();
         janela = new Janela();
@@ -53,6 +53,15 @@ public class Apresentacao extends javax.swing.JFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         cadastroIconeText = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
+        cadastroIconeBtTam = new javax.swing.JButton();
+        cadastroIconeTamanhoAltura = new javax.swing.JTextField();
+        cadastroIconeTamanhoLargura = new javax.swing.JTextField();
+        cadastroLabelAltura = new javax.swing.JLabel();
+        cadastroLabelLargura = new javax.swing.JLabel();
+        cadastroLabelUnidades1 = new javax.swing.JLabel();
+        cadastroLabelUnidades2 = new javax.swing.JLabel();
+        cadastroIconeSeparador = new javax.swing.JSeparator();
+        cadastroLabelTamanho = new javax.swing.JLabel();
         cadastroRegiao = new javax.swing.JPanel();
         cadastroRegiaoBotao = new javax.swing.JButton();
         cadastroRegiaoAltura = new javax.swing.JTextField();
@@ -87,6 +96,8 @@ public class Apresentacao extends javax.swing.JFrame {
         jPanel2 = new javax.swing.JPanel();
         jScrollPane5 = new javax.swing.JScrollPane();
         relatorioTabela = new javax.swing.JTable();
+        jPanel3 = new javax.swing.JPanel();
+        exclusaoComboList = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -99,6 +110,7 @@ public class Apresentacao extends javax.swing.JFrame {
         jLabel4.setText("unidades");
 
         botaoCadastroIcone.setText("Cadastrar Ícone");
+        botaoCadastroIcone.setEnabled(false);
         botaoCadastroIcone.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 botaoCadastroIconeActionPerformed(evt);
@@ -113,34 +125,83 @@ public class Apresentacao extends javax.swing.JFrame {
 
         jLabel13.setText("Posicionamento:");
 
+        cadastroIconeBtTam.setText("Cadastrar Tamanho");
+        cadastroIconeBtTam.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastroIconeBtTamActionPerformed(evt);
+            }
+        });
+
+        cadastroIconeTamanhoAltura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastroIconeTamanhoAlturaActionPerformed(evt);
+            }
+        });
+
+        cadastroIconeTamanhoLargura.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cadastroIconeTamanhoLarguraActionPerformed(evt);
+            }
+        });
+
+        cadastroLabelAltura.setText("Altura:");
+
+        cadastroLabelLargura.setText("Largura:");
+
+        cadastroLabelUnidades1.setText("unidades");
+
+        cadastroLabelUnidades2.setText("unidades");
+
+        cadastroLabelTamanho.setText("Tamanho:");
+
         javax.swing.GroupLayout cadastroIconeLayout = new javax.swing.GroupLayout(cadastroIcone);
         cadastroIcone.setLayout(cadastroIconeLayout);
         cadastroIconeLayout.setHorizontalGroup(
             cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(cadastroIconeSeparador)
             .addGroup(cadastroIconeLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel13)
                     .addGroup(cadastroIconeLayout.createSequentialGroup()
                         .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(cadastroIconeLayout.createSequentialGroup()
-                                .addGap(21, 21, 21)
-                                .addComponent(botaoCadastroIcone))
+                            .addComponent(jLabel13)
                             .addGroup(cadastroIconeLayout.createSequentialGroup()
                                 .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                                     .addComponent(jLabel1)
                                     .addComponent(jLabel2))
+                                .addGap(34, 34, 34)
+                                .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(cadastroText1, javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(cadastroText2, javax.swing.GroupLayout.DEFAULT_SIZE, 37, Short.MAX_VALUE))
+                                .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(cadastroIconeLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                            .addComponent(jLabel3)
+                                            .addComponent(jLabel4)))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, cadastroIconeLayout.createSequentialGroup()
+                                        .addGap(7, 7, 7)
+                                        .addComponent(botaoCadastroIcone)))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(cadastroIconeLayout.createSequentialGroup()
+                        .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(cadastroIconeLayout.createSequentialGroup()
+                                .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addComponent(cadastroLabelLargura)
+                                    .addComponent(cadastroLabelAltura))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(cadastroText1)
-                                    .addComponent(cadastroText2, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(cadastroIconeTamanhoLargura, javax.swing.GroupLayout.DEFAULT_SIZE, 32, Short.MAX_VALUE)
+                                    .addComponent(cadastroIconeTamanhoAltura))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4))))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 397, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(28, Short.MAX_VALUE))
+                                    .addComponent(cadastroLabelUnidades1)
+                                    .addComponent(cadastroLabelUnidades2)
+                                    .addComponent(cadastroIconeBtTam)))
+                            .addComponent(cadastroLabelTamanho))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
         cadastroIconeLayout.setVerticalGroup(
             cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -162,12 +223,29 @@ public class Apresentacao extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addComponent(botaoCadastroIcone, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(265, Short.MAX_VALUE))
+                .addGap(35, 35, 35)
+                .addComponent(cadastroIconeSeparador, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(cadastroLabelTamanho)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cadastroIconeTamanhoAltura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cadastroLabelAltura)
+                    .addComponent(cadastroLabelUnidades1))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(cadastroIconeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(cadastroIconeTamanhoLargura, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(cadastroLabelLargura)
+                    .addComponent(cadastroLabelUnidades2))
+                .addGap(18, 18, 18)
+                .addComponent(cadastroIconeBtTam)
+                .addContainerGap(112, Short.MAX_VALUE))
         );
 
         cadastroTable.addTab("Cadastro Ícone", cadastroIcone);
 
         cadastroRegiaoBotao.setText("Cadastrar Região");
+        cadastroRegiaoBotao.setEnabled(false);
         cadastroRegiaoBotao.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 cadastroRegiaoBotaoActionPerformed(evt);
@@ -246,7 +324,7 @@ public class Apresentacao extends javax.swing.JFrame {
                                     .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                     .addComponent(jLabel11))))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 361, Short.MAX_VALUE))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.DEFAULT_SIZE, 410, Short.MAX_VALUE))
                     .addGroup(cadastroRegiaoLayout.createSequentialGroup()
                         .addGap(24, 24, 24)
                         .addComponent(cadastroRegiaoBotao)
@@ -308,6 +386,7 @@ public class Apresentacao extends javax.swing.JFrame {
         jScrollPane3.setViewportView(lerClickText);
 
         lerClickConsultar.setText("Consultar");
+        lerClickConsultar.setEnabled(false);
         lerClickConsultar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 lerClickConsultarActionPerformed(evt);
@@ -341,7 +420,7 @@ public class Apresentacao extends javax.swing.JFrame {
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addComponent(lerClickX)))
                         .addGap(29, 29, 29)
-                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 456, Short.MAX_VALUE)))
+                        .addComponent(jScrollPane3, javax.swing.GroupLayout.DEFAULT_SIZE, 505, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -369,10 +448,14 @@ public class Apresentacao extends javax.swing.JFrame {
 
         cadastroTable.addTab("Ler Click", jPanel1);
 
-        String header[] = new String[] { "Data/Hora", "Clique (x,y)", "Item selecionado", "Distância"};
-        modeloRelatorioTabela = new DefaultTableModel(0, 0);
-        modeloRelatorioTabela.setColumnIdentifiers(header);
-        relatorioTabela.setModel(modeloRelatorioTabela);
+        relatorioTabela.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+
+            },
+            new String [] {
+                "Data / Hora", "Click (X,Y)", "Item Selecionado", "Distância"
+            }
+        ));
         relatorioTabela.setUpdateSelectionOnSort(false);
         jScrollPane5.setViewportView(relatorioTabela);
 
@@ -382,7 +465,7 @@ public class Apresentacao extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 553, Short.MAX_VALUE)
+                .addComponent(jScrollPane5, javax.swing.GroupLayout.DEFAULT_SIZE, 602, Short.MAX_VALUE)
                 .addContainerGap())
         );
         jPanel2Layout.setVerticalGroup(
@@ -394,6 +477,33 @@ public class Apresentacao extends javax.swing.JFrame {
         );
 
         cadastroTable.addTab("Relatorio", jPanel2);
+
+        exclusaoComboList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        exclusaoComboList.setEnabled(false);
+        exclusaoComboList.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                exclusaoComboListActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addGap(220, 220, 220)
+                .addComponent(exclusaoComboList, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(296, Short.MAX_VALUE))
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(exclusaoComboList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(351, Short.MAX_VALUE))
+        );
+
+        cadastroTable.addTab("Exclusão", jPanel3);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -415,24 +525,24 @@ public class Apresentacao extends javax.swing.JFrame {
 
     private void botaoCadastroIconeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_botaoCadastroIconeActionPerformed
         if (cadastroText1.getText().trim().isEmpty()) {
-        	JOptionPane.showMessageDialog(this, "Favor informar a coordenada X.");
-        	return;
+            JOptionPane.showMessageDialog(this, "Favor informar a coordenada X.");
+            return;
         }
 
         if (cadastroText2.getText().trim().isEmpty()) {
-        	JOptionPane.showMessageDialog(this, "Favor informar a coordenada Y.");
-        	return;
+            JOptionPane.showMessageDialog(this, "Favor informar a coordenada Y.");
+            return;
         }
-    	try {
+        try {
             int valorX = Integer.parseInt(cadastroText1.getText().trim());
             int valorY = Integer.parseInt(cadastroText2.getText().trim());
-            
+
             Icone icone = new Icone(valorX, valorY);
             janela.addItem(icone);
             JOptionPane.showMessageDialog(this, "Cadastro do ícone efetuado com sucesso");
             cadastroText1.setText("");
             cadastroText2.setText("");
-                    
+
         } catch (IllegalArgumentException iae) {
             JOptionPane.showMessageDialog(this, iae.getMessage());
         }
@@ -443,45 +553,43 @@ public class Apresentacao extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastroRegiaoAlturaActionPerformed
 
     private void cadastroRegiaoBotaoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroRegiaoBotaoActionPerformed
-    	
-    	if (cadastroRegiaoPosicionamentoX.getText().trim().isEmpty()) {
-        	JOptionPane.showMessageDialog(this, "Favor informar a coordenada X.");
-        	return;
+
+        if (cadastroRegiaoPosicionamentoX.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Favor informar a coordenada X.");
+            return;
         }
 
         if (cadastroRegiaoPosicionamentoY.getText().trim().isEmpty()) {
-        	JOptionPane.showMessageDialog(this, "Favor informar a coordenada Y.");
-        	return;
+            JOptionPane.showMessageDialog(this, "Favor informar a coordenada Y.");
+            return;
         }
-        
-    	if (cadastroRegiaoAltura.getText().trim().isEmpty()) {
-        	JOptionPane.showMessageDialog(this, "Favor informar a altura.");
-        	return;
+
+        if (cadastroRegiaoAltura.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Favor informar a altura.");
+            return;
         }
 
         if (cadastroRegiaoLargura.getText().trim().isEmpty()) {
-        	JOptionPane.showMessageDialog(this, "Favor informar a largura.");
-        	return;
+            JOptionPane.showMessageDialog(this, "Favor informar a largura.");
+            return;
         }
-        
+
         try {
-        Regiao regiao = new Regiao(Integer.parseInt(cadastroRegiaoPosicionamentoX.getText().trim()), Integer.parseInt(cadastroRegiaoPosicionamentoY.getText().trim()), 
-        Integer.parseInt(cadastroRegiaoAltura.getText().trim()), Integer.parseInt(cadastroRegiaoLargura.getText().trim()));
-        janela.addItem(regiao);
-        JOptionPane.showMessageDialog(this, "Região cadastrada com sucesso"); 
-        
-        cadastroRegiaoPosicionamentoX.setText("");
-        cadastroRegiaoPosicionamentoY.setText(""); 
-        cadastroRegiaoAltura.setText("");
-        cadastroRegiaoLargura.setText("");
-        
+            Regiao regiao = new Regiao(Integer.parseInt(cadastroRegiaoPosicionamentoX.getText().trim()), Integer.parseInt(cadastroRegiaoPosicionamentoY.getText().trim()),
+                    Integer.parseInt(cadastroRegiaoAltura.getText().trim()), Integer.parseInt(cadastroRegiaoLargura.getText().trim()));
+            janela.addItem(regiao);
+            JOptionPane.showMessageDialog(this, "Região cadastrada com sucesso");
+
+            cadastroRegiaoPosicionamentoX.setText("");
+            cadastroRegiaoPosicionamentoY.setText("");
+            cadastroRegiaoAltura.setText("");
+            cadastroRegiaoLargura.setText("");
+
         } catch (IllegalArgumentException iae) {
-        JOptionPane.showMessageDialog(this, iae.getMessage());
+            JOptionPane.showMessageDialog(this, iae.getMessage());
         }
-        
-         
-         
-         
+
+
     }//GEN-LAST:event_cadastroRegiaoBotaoActionPerformed
 
     private void lerClickXActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lerClickXActionPerformed
@@ -489,37 +597,73 @@ public class Apresentacao extends javax.swing.JFrame {
     }//GEN-LAST:event_lerClickXActionPerformed
 
     private void lerClickConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lerClickConsultarActionPerformed
-    	
-    	if (lerClickX.getText().trim().isEmpty()) {
-        	JOptionPane.showMessageDialog(this, "Favor informar a coordenada X.");
-        	return;
+
+        if (lerClickX.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Favor informar a coordenada X.");
+            return;
         }
-    	
-    	if (lerClickY.getText().trim().isEmpty()) {
-        	JOptionPane.showMessageDialog(this, "Favor informar a coordenada Y.");
-        	return;
+
+        if (lerClickY.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Favor informar a coordenada Y.");
+            return;
         }
-    	
-    	DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
-    	Date date = new Date();
-    	Clicavel item = null;
-    	double distancia = 0;
-    	
-    	try {
-    		String x = lerClickX.getText().trim();
-    		String y = lerClickY.getText().trim();
-    		item = janela.clicar(Integer.parseInt(x), Integer.parseInt(y), jTextArea1);
+
+        DateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy HH:mm:ss");
+        Date date = new Date();
+        Clicavel item = null;
+        double distancia = 0;
+
+        try {
+            String x = lerClickX.getText().trim();
+            String y = lerClickY.getText().trim();
+            item = janela.clicar(Integer.parseInt(x), Integer.parseInt(y), jTextArea1);
+
             if (item == null) {
-            	modeloRelatorioTabela.addRow(new Object[] {dateFormat.format(date), x + "," + y, "Nenhum item", distancia});
+                modeloRelatorioTabela.addRow(new Object[]{dateFormat.format(date), x + "," + y, "Nenhum item", distancia});
             } else {
-            	distancia = janela.getDistancia(Integer.parseInt(x), Integer.parseInt(y), item.getX(), item.getY());
-            	modeloRelatorioTabela.addRow(new Object[] {dateFormat.format(date), x + "," + y, item.getClass().getSimpleName() + ": " + item.getId(), distancia});
+                distancia = janela.getDistancia(Integer.parseInt(x), Integer.parseInt(y), item.getX(), item.getY());
+                modeloRelatorioTabela.addRow(new Object[]{dateFormat.format(date), x + "," + y, item.getClass().getSimpleName() + ": " + item.getId(), distancia});
             }
         } catch (IllegalArgumentException iae) {
-           JOptionPane.showMessageDialog(this, iae.getMessage());
+            JOptionPane.showMessageDialog(this, iae.getMessage());
         }
-       
+
+        lerClickX.setText("");
+        lerClickY.setText("");
     }//GEN-LAST:event_lerClickConsultarActionPerformed
+
+    private void exclusaoComboListActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_exclusaoComboListActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_exclusaoComboListActionPerformed
+
+    private void cadastroIconeTamanhoLarguraActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroIconeTamanhoLarguraActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cadastroIconeTamanhoLarguraActionPerformed
+
+    private void cadastroIconeTamanhoAlturaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroIconeTamanhoAlturaActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cadastroIconeTamanhoAlturaActionPerformed
+
+    private void cadastroIconeBtTamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroIconeBtTamActionPerformed
+        //Habilita ícones
+        botaoCadastroIcone.setEnabled(true);
+        cadastroRegiaoBotao.setEnabled(true);
+        lerClickConsultar.setEnabled(true);
+        exclusaoComboList.setEnabled(true);
+        //Visible false cadadstro tamanho icone
+        cadastroLabelTamanho.setVisible(false);
+        cadastroIconeBtTam.setVisible(false);
+        cadastroIconeTamanhoLargura.setVisible(false);
+        cadastroIconeTamanhoAltura.setVisible(false);
+        cadastroLabelTamanho.setVisible(false);
+        cadastroLabelAltura.setVisible(false);
+        cadastroLabelLargura.setVisible(false);
+        cadastroLabelUnidades1.setVisible(false);
+        cadastroLabelUnidades2.setVisible(false);
+        cadastroIconeSeparador.setVisible(false);
+        JOptionPane.showMessageDialog(this, "Cadastro tamanho do ícone efetuado com sucesso");
+        
+    }//GEN-LAST:event_cadastroIconeBtTamActionPerformed
 
     /**
      * @param args the command line arguments
@@ -560,7 +704,16 @@ public class Apresentacao extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton botaoCadastroIcone;
     private javax.swing.JPanel cadastroIcone;
+    private javax.swing.JButton cadastroIconeBtTam;
+    private javax.swing.JSeparator cadastroIconeSeparador;
+    private javax.swing.JTextField cadastroIconeTamanhoAltura;
+    private javax.swing.JTextField cadastroIconeTamanhoLargura;
     private javax.swing.JTextArea cadastroIconeText;
+    private javax.swing.JLabel cadastroLabelAltura;
+    private javax.swing.JLabel cadastroLabelLargura;
+    private javax.swing.JLabel cadastroLabelTamanho;
+    private javax.swing.JLabel cadastroLabelUnidades1;
+    private javax.swing.JLabel cadastroLabelUnidades2;
     private javax.swing.JPanel cadastroRegiao;
     private javax.swing.JTextField cadastroRegiaoAltura;
     private javax.swing.JButton cadastroRegiaoBotao;
@@ -571,6 +724,7 @@ public class Apresentacao extends javax.swing.JFrame {
     private javax.swing.JTabbedPane cadastroTable;
     private javax.swing.JTextField cadastroText1;
     private javax.swing.JTextField cadastroText2;
+    private javax.swing.JComboBox<String> exclusaoComboList;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -591,6 +745,7 @@ public class Apresentacao extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -602,7 +757,6 @@ public class Apresentacao extends javax.swing.JFrame {
     private javax.swing.JTextField lerClickX;
     private javax.swing.JTextField lerClickY;
     private javax.swing.JTable relatorioTabela;
-    private DefaultTableModel modeloRelatorioTabela;
     // End of variables declaration//GEN-END:variables
 
 }

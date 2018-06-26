@@ -24,6 +24,7 @@ public class Janela {
 		
 		for (int i = 0; i < item.getLargura(); i++) {
 			for (int j = 0; j < item.getAltura(); j++) {
+				// Consideramos regiões com mais peso do que icones 
 				if ((item.getClass()  == Icone.class) 
 						&& (mapa[item.getX()+i][item.getY()+j] != null) 
 						&& (mapa[item.getX()+i][item.getY()+j]).getClass() == Regiao.class) {

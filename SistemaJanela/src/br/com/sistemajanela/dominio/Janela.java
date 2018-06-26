@@ -24,6 +24,11 @@ public class Janela {
 		
 		for (int i = 0; i < item.getLargura(); i++) {
 			for (int j = 0; j < item.getAltura(); j++) {
+				if ((item.getClass()  == Icone.class) 
+						&& (mapa[item.getX()+i][item.getY()+j] != null) 
+						&& (mapa[item.getX()+i][item.getY()+j]).getClass() == Regiao.class) {
+					continue;
+				}
 				mapa[item.getX()+i][item.getY()+j] = item;
 			}
 		}
@@ -56,8 +61,8 @@ public class Janela {
 		}
 		
 		double distancia = 0f;
-		Clicavel retorno = itens.get(0);
-		double menorDistancia = getDistancia(itens.get(0).getX(), itens.get(0).getY(), x, y);
+		Clicavel retorno = null;
+		double menorDistancia = 0;
 
 		for (Clicavel item : itens) {
 			if (item.getClass() != Icone.class) {
@@ -67,7 +72,7 @@ public class Janela {
 			for (int i = 0; i < Icone.altura; i++) {
 				for (int j = 0; j < Icone.largura; j++) {
 					distancia = getDistancia(item.getX() + i, item.getY() + j, x, y);
-					if (menorDistancia > distancia) {
+					if (menorDistancia > distancia || retorno == null) {
 						menorDistancia = distancia;
 						retorno = item;
 					}

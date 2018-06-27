@@ -70,8 +70,8 @@ public class Janela {
 				continue;
 			}
 			// Percorremos todas as distancias considerando as dimens�es
-			for (int i = 0; i < Icone.altura; i++) {
-				for (int j = 0; j < Icone.largura; j++) {
+			for (int i = 0; i < Icone.LARGURA; i++) {
+				for (int j = 0; j < Icone.ALTURA; j++) {
 					distancia = getDistancia(item.getX() + i, item.getY() + j, x, y);
 					if (menorDistancia > distancia || retorno == null) {
 						menorDistancia = distancia;

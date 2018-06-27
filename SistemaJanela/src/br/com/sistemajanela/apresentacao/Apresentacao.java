@@ -678,8 +678,8 @@ public class Apresentacao extends javax.swing.JFrame {
         //Conssistência de valores
         if (Integer.parseInt(cadastroIconeTamanhoAltura.getText().trim()) > 0 && Integer.parseInt(cadastroIconeTamanhoLargura.getText().trim()) > 0) {
 
-            Icone.altura = Integer.parseInt(cadastroIconeTamanhoAltura.getText());
-            Icone.largura = Integer.parseInt(cadastroIconeTamanhoLargura.getText());
+            Icone.ALTURA = Integer.parseInt(cadastroIconeTamanhoAltura.getText());
+            Icone.LARGURA = Integer.parseInt(cadastroIconeTamanhoLargura.getText());
 
             //Habilita ícones
             botaoCadastroIcone.setEnabled(true);

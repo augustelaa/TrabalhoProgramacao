@@ -30,6 +30,10 @@ public class Apresentacao extends javax.swing.JFrame {
     public Apresentacao() {
         initComponents();
         janela = new Janela();
+        String header[] = new String[]{"Data/Hora", "Clique (x,y)", "Item selecionado", "Distância"};
+        modeloRelatorioTabela = new DefaultTableModel(0, 0);
+        modeloRelatorioTabela.setColumnIdentifiers(header);
+        relatorioTabela.setModel(modeloRelatorioTabela);
     }
 
     /**
@@ -98,6 +102,7 @@ public class Apresentacao extends javax.swing.JFrame {
         relatorioTabela = new javax.swing.JTable();
         jPanel3 = new javax.swing.JPanel();
         exclusaoComboList = new javax.swing.JComboBox<>();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -478,11 +483,17 @@ public class Apresentacao extends javax.swing.JFrame {
 
         cadastroTable.addTab("Relatorio", jPanel2);
 
-        exclusaoComboList.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         exclusaoComboList.setEnabled(false);
         exclusaoComboList.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 exclusaoComboListActionPerformed(evt);
+            }
+        });
+
+        jButton1.setText("Excluir");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
             }
         });
 
@@ -491,16 +502,23 @@ public class Apresentacao extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addGap(220, 220, 220)
-                .addComponent(exclusaoComboList, javax.swing.GroupLayout.PREFERRED_SIZE, 106, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(296, Short.MAX_VALUE))
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(220, 220, 220)
+                        .addComponent(exclusaoComboList, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(257, 257, 257)
+                        .addComponent(jButton1)))
+                .addContainerGap(264, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(exclusaoComboList, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(351, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jButton1)
+                .addContainerGap(322, Short.MAX_VALUE))
         );
 
         cadastroTable.addTab("Exclusão", jPanel3);
@@ -542,6 +560,7 @@ public class Apresentacao extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(this, "Cadastro do ícone efetuado com sucesso");
             cadastroText1.setText("");
             cadastroText2.setText("");
+            exclusaoComboList.addItem(icone);
 
         } catch (IllegalArgumentException iae) {
             JOptionPane.showMessageDialog(this, iae.getMessage());
@@ -584,7 +603,7 @@ public class Apresentacao extends javax.swing.JFrame {
             cadastroRegiaoPosicionamentoY.setText("");
             cadastroRegiaoAltura.setText("");
             cadastroRegiaoLargura.setText("");
-
+            exclusaoComboList.addItem(regiao);
         } catch (IllegalArgumentException iae) {
             JOptionPane.showMessageDialog(this, iae.getMessage());
         }
@@ -645,25 +664,47 @@ public class Apresentacao extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastroIconeTamanhoAlturaActionPerformed
 
     private void cadastroIconeBtTamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroIconeBtTamActionPerformed
-        //Habilita ícones
-        botaoCadastroIcone.setEnabled(true);
-        cadastroRegiaoBotao.setEnabled(true);
-        lerClickConsultar.setEnabled(true);
-        exclusaoComboList.setEnabled(true);
-        //Visible false cadadstro tamanho icone
-        cadastroLabelTamanho.setVisible(false);
-        cadastroIconeBtTam.setVisible(false);
-        cadastroIconeTamanhoLargura.setVisible(false);
-        cadastroIconeTamanhoAltura.setVisible(false);
-        cadastroLabelTamanho.setVisible(false);
-        cadastroLabelAltura.setVisible(false);
-        cadastroLabelLargura.setVisible(false);
-        cadastroLabelUnidades1.setVisible(false);
-        cadastroLabelUnidades2.setVisible(false);
-        cadastroIconeSeparador.setVisible(false);
-        JOptionPane.showMessageDialog(this, "Cadastro tamanho do ícone efetuado com sucesso");
-        
+
+        //Conssistência de valores
+        if (Integer.parseInt(cadastroIconeTamanhoAltura.getText()) > 0 && Integer.parseInt(cadastroIconeTamanhoLargura.getText()) > 0) {
+
+            Icone.altura = Integer.parseInt(cadastroIconeTamanhoAltura.getText());
+            Icone.largura = Integer.parseInt(cadastroIconeTamanhoLargura.getText());
+
+            //Habilita ícones
+            botaoCadastroIcone.setEnabled(true);
+            cadastroRegiaoBotao.setEnabled(true);
+            lerClickConsultar.setEnabled(true);
+            exclusaoComboList.setEnabled(true);
+            //Visible false cadadstro tamanho icone
+            cadastroLabelTamanho.setVisible(false);
+            cadastroIconeBtTam.setVisible(false);
+            cadastroIconeTamanhoLargura.setVisible(false);
+            cadastroIconeTamanhoAltura.setVisible(false);
+            cadastroLabelTamanho.setVisible(false);
+            cadastroLabelAltura.setVisible(false);
+            cadastroLabelLargura.setVisible(false);
+            cadastroLabelUnidades1.setVisible(false);
+            cadastroLabelUnidades2.setVisible(false);
+            cadastroIconeSeparador.setVisible(false);
+            JOptionPane.showMessageDialog(this, "Cadastro tamanho do ícone efetuado com sucesso");
+
+        } else {
+            JOptionPane.showMessageDialog(this, "Valor incorreto");
+
+        }
     }//GEN-LAST:event_cadastroIconeBtTamActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+       if(exclusaoComboList != null){
+        janela.remItem((Clicavel)exclusaoComboList.getSelectedItem());
+        exclusaoComboList.removeItem(exclusaoComboList.getSelectedItem());
+        JOptionPane.showMessageDialog(this, "Exclusão efetuada com sucesso");
+       }
+       else{
+           JOptionPane.showMessageDialog(this, "Cadastre algum item");
+       }
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -724,7 +765,8 @@ public class Apresentacao extends javax.swing.JFrame {
     private javax.swing.JTabbedPane cadastroTable;
     private javax.swing.JTextField cadastroText1;
     private javax.swing.JTextField cadastroText2;
-    private javax.swing.JComboBox<String> exclusaoComboList;
+    private javax.swing.JComboBox<Clicavel> exclusaoComboList;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

@@ -665,8 +665,18 @@ public class Apresentacao extends javax.swing.JFrame {
 
     private void cadastroIconeBtTamActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cadastroIconeBtTamActionPerformed
 
+    	if (cadastroIconeTamanhoAltura.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Favor informar a altura do icone.");
+            return;
+        }
+
+        if (cadastroIconeTamanhoLargura.getText().trim().isEmpty()) {
+            JOptionPane.showMessageDialog(this, "Favor informar a largura do icone.");
+            return;
+        }
+
         //Conssistência de valores
-        if (Integer.parseInt(cadastroIconeTamanhoAltura.getText()) > 0 && Integer.parseInt(cadastroIconeTamanhoLargura.getText()) > 0) {
+        if (Integer.parseInt(cadastroIconeTamanhoAltura.getText().trim()) > 0 && Integer.parseInt(cadastroIconeTamanhoLargura.getText().trim()) > 0) {
 
             Icone.altura = Integer.parseInt(cadastroIconeTamanhoAltura.getText());
             Icone.largura = Integer.parseInt(cadastroIconeTamanhoLargura.getText());
@@ -696,7 +706,7 @@ public class Apresentacao extends javax.swing.JFrame {
     }//GEN-LAST:event_cadastroIconeBtTamActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       if(exclusaoComboList != null){
+       if(exclusaoComboList.getSelectedItem() != null){
         janela.remItem((Clicavel)exclusaoComboList.getSelectedItem());
         exclusaoComboList.removeItem(exclusaoComboList.getSelectedItem());
         JOptionPane.showMessageDialog(this, "Exclusão efetuada com sucesso");

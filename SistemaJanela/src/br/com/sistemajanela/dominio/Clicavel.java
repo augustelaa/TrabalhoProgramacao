@@ -58,4 +58,7 @@ public abstract class Clicavel {
 		this.id = id;
 	}
 	
+        public String toString() {
+            return id;
+        }
 }

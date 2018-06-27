@@ -263,9 +263,9 @@ public class Apresentacao extends javax.swing.JFrame {
             }
         });
 
-        jLabel5.setText("Largura:");
+        jLabel5.setText("Altura:");
 
-        jLabel6.setText("Altura:");
+        jLabel6.setText("Largura:");
 
         jLabel7.setText("X:");
 
@@ -504,12 +504,12 @@ public class Apresentacao extends javax.swing.JFrame {
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel3Layout.createSequentialGroup()
-                        .addGap(220, 220, 220)
-                        .addComponent(exclusaoComboList, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel3Layout.createSequentialGroup()
                         .addGap(257, 257, 257)
-                        .addComponent(jButton1)))
-                .addContainerGap(264, Short.MAX_VALUE))
+                        .addComponent(jButton1))
+                    .addGroup(jPanel3Layout.createSequentialGroup()
+                        .addGap(141, 141, 141)
+                        .addComponent(exclusaoComboList, javax.swing.GroupLayout.PREFERRED_SIZE, 307, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(174, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
